@@ -16,6 +16,23 @@ module Helpers
     agent
   end
 
+  def get_team(name, type, value)
+    agent = Xapi::Team.new(name: name)
+    case type
+      when :mbox
+        agent.mbox =  value
+      when :open_id
+        agent.open_id = value
+      when :mbox_sha1_sum
+        agent.mbox_sha1_sum = value
+      when :account
+        parts = value.split('|')
+        account = Xapi::AgentAccount.new(home_page: parts.first, name: parts.last)
+        agent.account = account
+    end
+    agent
+  end
+
   def create_interaction_component(id, description)
     component = Xapi::InteractionComponent.new
     component.id = id

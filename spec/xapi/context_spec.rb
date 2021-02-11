@@ -24,7 +24,7 @@ describe Xapi::Context do
     ref = Xapi::StatementRef.new
     ref.id = SecureRandom.uuid
     context.statement = ref
-    context.team = get_agent('Group', 'mbox', 'mailto:group@example.com')
+    context.team = get_team('Group', 'mbox', 'mailto:group@example.com')
 
     assert_serialize_and_deserialize(context)
   end
