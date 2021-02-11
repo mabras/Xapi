@@ -1,6 +1,5 @@
 # encoding: utf-8
 require 'spec_helper'
-require 'ruby-duration'
 
 describe Xapi::Result do
   include Helpers
@@ -8,7 +7,7 @@ describe Xapi::Result do
   it 'should serialize and deserialize' do
     result = Xapi::Result.new
     result.completion = true
-    result.duration = Duration.new('P1DT8H')
+    result.duration = ActiveSupport::Duration.parse('P1DT8H')
 
     map = {}
     map['http://example.com/extension'] = 'extension value'
@@ -21,6 +20,5 @@ describe Xapi::Result do
     result.success = false
 
     assert_serialize_and_deserialize(result)
-
   end
 end
