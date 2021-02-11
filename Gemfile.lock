@@ -71,9 +71,9 @@ PLATFORMS
 
 DEPENDENCIES
   bundler
-  pry (~> 0.10)
-  rake (~> 10.0)
-  rspec (~> 3.2)
+  pry
+  rake
+  rspec
   webmock (~> 3.0.0)
   xapi!
 
