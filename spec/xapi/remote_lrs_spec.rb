@@ -6,8 +6,9 @@ describe Xapi::RemoteLRS do
 
   describe 'about' do
     it 'is successful' do
-      stub_request(:get, "http://user:password@www.example.com/about").
+      stub_request(:get, "http://www.example.com/about").
           with(headers: default_request_headers).
+          with(basic_auth: ['user', 'password']).
           to_return(
               status: 200,
               body: fixture('about.json'),
@@ -24,8 +25,9 @@ describe Xapi::RemoteLRS do
     end
 
     it 'creates an about instance' do
-      stub_request(:get, "http://user:password@www.example.com/about").
+      stub_request(:get, "http://www.example.com/about").
           with(headers: default_request_headers).
+          with(basic_auth: ['user', 'password']).
           to_return(
               status: 200,
               body: fixture('about.json'),

@@ -55,6 +55,6 @@ module Helpers
   end
 
   def default_request_headers
-    {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'User-Agent'=>'Faraday v1.1.0', 'X-Experience-Api-Version'=>'1.0.1'}
+    {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Authorization'=>'Basic dXNlcjpwYXNzd29yZA==', 'User-Agent'=>'Faraday v1.1.0', 'X-Experience-Api-Version'=>'1.0.1'}
   end
 end
