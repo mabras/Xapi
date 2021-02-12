@@ -45,9 +45,9 @@ module Xapi
       node
     end
 
-    def stamp
-      @id = SecureRandom.uuid
-      @timestamp = Time.now
+    def stamp(id: SecureRandom.uuid, timestamp: Time.now)
+      @id = id
+      @timestamp = timestamp
     end
   end
 end

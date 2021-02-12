@@ -54,4 +54,20 @@ describe Xapi::Statement do
       assert_serialize_and_deserialize(statement)
     end
   end
+
+  it 'got stamped' do
+    statement = Xapi::Statement.new
+    statement.stamp
+    expect(statement.id).not_to eq nil
+    expect(statement.id).to be_a String
+    expect(statement.timestamp).not_to eq nil
+    expect(statement.timestamp).to be_a Time
+
+    timestamp = Time.now
+    id = SecureRandom.uuid
+    statement = Xapi::Statement.new
+    statement.stamp(id: id, timestamp: timestamp)
+    expect(statement.id).to eq(id)
+    expect(statement.timestamp).to eq(timestamp)
+  end
 end
