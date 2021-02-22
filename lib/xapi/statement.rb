@@ -39,7 +39,7 @@ module Xapi
         node['voided'] = voided if voided
       end
 
-      if version.ordinal <= Xapi::TCAPIVersion::V100.ordinal
+      if version.ordinal >= Xapi::TCAPIVersion::V100.ordinal
         node['version'] = version.to_s if version
       end
       node
