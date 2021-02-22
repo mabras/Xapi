@@ -2,7 +2,7 @@
 module Xapi
   module Enum
     CONVERT_PROC = Proc.new do
-      @values = constants.collect{|c| const_get(c)}.freeze
+      @values = constants.sort.collect{|c| const_get(c)}.freeze
 
       @values.each_with_index do |value, idx|
         the_symbol = constants.find{|c| const_get(c) == value}
