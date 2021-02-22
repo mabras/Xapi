@@ -6,11 +6,11 @@ require 'xapi/version'
 Gem::Specification.new do |spec|
   spec.name          = "xapi"
   spec.version       = Xapi::VERSION
-  spec.authors       = ["KodandaPani K"]
-  spec.email         = ["kodandapani.k@comakeit.com"]
+  spec.authors       = ["GrowthTribe"]
+  spec.email         = ["dev@growthtribe.nl"]
   spec.summary       = "A Ruby library for implementing xAPIs."
-  spec.description   = %q{A Ruby library for interacting with a Learning Record Store (LRS) using the xAPI)}
-  spec.homepage      = 'https://github.com/Deakin-Prime/Xapi'
+  spec.description   = %q{A Ruby library for interacting with a Learning Record Store (LRS) using the xAPI). Forked and extended from https://github.com/Deakin-Prime/Xapi created by kodandapani.k@comakeit.com}
+  spec.homepage      = 'https://github.com/growthtribeacademy/Xapi'
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")

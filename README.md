@@ -15,7 +15,7 @@ https://github.com/adlnet/xAPI-Spec
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'xapi'
+gem 'growthtribe_xapi'
 ```
 
 And then execute:
@@ -24,7 +24,10 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install xapi
+    $ gem install growthtribe_xapi
+
+This gem provided classes in `Xapi` namespace as in original `Xapi`gem,
+from which it has been forked from.
 
 ## Usage
 
@@ -54,7 +57,7 @@ https://github.com/adlnet/xAPI-Spec/blob/master/xAPI-Data.md
 Create a Agent for a Statement
 
 ```ruby
-# Parameters can be passed for create_agent are: 
+# Parameters can be passed for create_agent are:
 # agent_type which is either Agent or Group
 # Passing email, name - if agent_type is Agent
 # Passing members Array with hashes having name and email as keys - if agent_type is Group
@@ -67,7 +70,7 @@ agent = Xapi.create_agent(agent_type: 'Group', members: [ {email: 'email1', name
 Create a Team for Context of a Statement
 
 ```ruby
-# Parameters can be passed for create_team are: object_type, statement_id 
+# Parameters can be passed for create_team are: object_type, statement_id
 
 team = Xapi.create_team(home_page: "http://some.learnactivity.com/", name: 'team_name')
 ```
@@ -75,7 +78,7 @@ team = Xapi.create_team(home_page: "http://some.learnactivity.com/", name: 'team
 Create a Verb for a Statement
 
 ```ruby
-# Parameters can be passed for create_verb are: id, name 
+# Parameters can be passed for create_verb are: id, name
 
 verb = Xapi.create_verb(id: 'http://adlnet.gov/expapi/verbs/launched', name: 'launched')
 ```
@@ -85,8 +88,8 @@ Create a Object for a Statement which is either Activity, Agent, or another Stat
 ```ruby
 # Parameters can be passed for create_activity are: id, name, description, extensions
 
-object = Xapi.create_activity(id: "http://some.learnactivity.com/conversation", 
-                              name: 'Learning conversation', type: 'http://adlnet.gov/expapi/activities/assessment', 
+object = Xapi.create_activity(id: "http://some.learnactivity.com/conversation",
+                              name: 'Learning conversation', type: 'http://adlnet.gov/expapi/activities/assessment',
                               description: 'Conversational Learning tool',
                               extensions: { "http://id.tincanapi.com/extension/planned-duration" => 'PT50M' }
                                    )
@@ -98,7 +101,7 @@ Create a Context Activities for Given Context of a Statement
 # Parameters can be passed for create_context_activities are: grouping, category, parent, other which are Array of Objects/Activitites realted to Context of a Statement
 
 grouping_array = []
-grouping_array << Xapi.create_activity( id: "http://some.learnactivity.com/topics/1", 
+grouping_array << Xapi.create_activity( id: "http://some.learnactivity.com/topics/1",
                                         name: 'topic title', type: "http://activitystrea.ms/schema/1.0/task"
                                       )
 context_activities = Xapi.create_context_activities(grouping: grouping_array)
@@ -109,8 +112,8 @@ Create a Context for a Statement
 ```ruby
 # Parameters can be passed for create_context are: registration, extensions, team, instructor, statement, context_activities
 
-context = Xapi.create_context(registration: 'registration_id', 
-                              extensions: { "http://some.learnactivity.com/extension/tags" => ["domain1", "domain2"], 
+context = Xapi.create_context(registration: 'registration_id',
+                              extensions: { "http://some.learnactivity.com/extension/tags" => ["domain1", "domain2"],
                               team: team, instructor: instructor_agent,
                               context_activities: context_activities
                             )
@@ -119,7 +122,7 @@ context = Xapi.create_context(registration: 'registration_id',
 Create a Result for a Statement
 
 ```ruby
-# Parameters can be passed for create_result are: scaled_score or score_details, duration, response, success, completion, extensions 
+# Parameters can be passed for create_result are: scaled_score or score_details, duration, response, success, completion, extensions
 
 result = Xapi.create_result(response: 'response details', score_details: {min: 1, raw: 7, max: 10}, success: true, extensions: {""http://some.learnactivity.com/extension/questions" => ['question1', 'question2']})
 ```
