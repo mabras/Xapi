@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'xapi/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "xapi"
+  spec.name          = "growthtribe_xapi"
   spec.version       = Xapi::VERSION
   spec.authors       = ["GrowthTribe"]
   spec.email         = ["dev@growthtribe.nl"]
