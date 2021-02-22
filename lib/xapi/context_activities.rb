@@ -88,7 +88,7 @@ module Xapi
       end
 
       if category && category.any?
-        if version.ordinal <= Xapi::TCAPIVersion::V100.ordinal
+        if version.ordinal >= Xapi::TCAPIVersion::V100.ordinal
           node['category'] = category.map {|element| element.serialize(version)}
         else
           raise Xapi::Errors::IncompatibleTCAPIVersion, "Version #{version.to_s} doesn't support the category context activity"

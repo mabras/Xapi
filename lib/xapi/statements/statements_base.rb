@@ -58,7 +58,7 @@ module Xapi
         node['result'] = result.serialize(version) if result
         node['context'] = context.serialize(version) if context
         node['timestamp'] = timestamp.strftime('%FT%T%:z') if timestamp
-        if version.ordinal <= Xapi::TCAPIVersion::V100.ordinal
+        if version.ordinal >= Xapi::TCAPIVersion::V100.ordinal
           if attachments && attachments.any?
             node['attachments'] = attachments.map {|element| element.serialize(version)}
           end
