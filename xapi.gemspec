@@ -23,7 +23,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'pry'
   spec.add_development_dependency 'webmock', '~> 3.0.0'
 
-  spec.add_runtime_dependency 'faraday', '~> 1.3.0'
+  spec.add_runtime_dependency 'faraday', '~> 1.8.0'
   spec.add_runtime_dependency 'addressable', '~> 2.3'
   spec.add_runtime_dependency 'activesupport', '>= 5.1'
 end
