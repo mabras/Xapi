@@ -15,7 +15,7 @@ https://github.com/adlnet/xAPI-Spec
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'growthtribe_xapi'
+gem 'xapi'
 ```
 
 And then execute:
@@ -24,7 +24,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install growthtribe_xapi
+    $ gem install xapi
 
 This gem provided classes in `Xapi` namespace as in original `Xapi`gem,
 from which it has been forked from.
