@@ -330,7 +330,7 @@ module Xapi
         faraday.response :logger                  # log requests to STDOUT
         faraday.adapter  Faraday.default_adapter  # make requests with Net::HTTP
         faraday.headers['X-Experience-API-Version'] = version.to_s
-        faraday.basic_auth(user_name, password)
+        faraday.request(:basic_auth, user_name, password)
       end
     end
 
