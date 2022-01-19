@@ -28,6 +28,7 @@ module Xapi
 
     def serialize(version)
       node = {}
+      node['objectType'] = object_type
       node['id'] = id.to_s if id
       node['definition'] = definition.serialize(version) if definition
       node
