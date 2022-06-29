@@ -45,13 +45,13 @@ module Xapi
 
   # Parameters can be passed for create_verb are: id, name
   def self.create_verb(opts={})
-    Verb.new(id: opts[:id], display: {"en-US": opts[:name]})
+    Verb.new(id: opts[:id], display: {"ar-SA": opts[:name]})
   end
 
   # Parameters can be passed for create_activity are: id, name, description, extensions
   def self.create_activity(opts={})
-    activity_definition = ActivityDefinition.new(name: {"en-US"=>opts[:name]}, type: opts[:type])
-    activity_definition.description = {"en-US" => opts[:description]} if opts[:description].present?
+    activity_definition = ActivityDefinition.new(name: {"ar-SA"=>opts[:name]}, type: opts[:type])
+    activity_definition.description = {"ar-SA" => opts[:description]} if opts[:description].present?
     activity_definition.extensions = opts[:extensions] if opts[:extensions].present?
     Activity.new(id: opts[:id], definition: activity_definition)
   end
@@ -63,7 +63,6 @@ module Xapi
 
   # Parameters can be passed for create_context are: registration, extensions, team, instructor, statement, context_activities
   def self.create_context(opts={})
-    opts[:language] = 'en-US'
     Context.new(opts)
   end
 
