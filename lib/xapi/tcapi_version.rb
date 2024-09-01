@@ -1,6 +1,6 @@
 # encoding: utf-8
 module Xapi
-  module TCAPIVersion
+  module TcapiVersion
 
     V101 = {
         to_s: '1.0.1',

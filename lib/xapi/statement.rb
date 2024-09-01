@@ -35,11 +35,11 @@ module Xapi
       node['stored'] = stored.strftime('%FT%T%:z') if stored
       node['authority'] = authority.serialize(version) if authority
 
-      if version == Xapi::TCAPIVersion::V095
+      if version == Xapi::TcapiVersion::V095
         node['voided'] = voided if voided
       end
 
-      if version.ordinal >= Xapi::TCAPIVersion::V100.ordinal
+      if version.ordinal >= Xapi::TcapiVersion::V100.ordinal
         node['version'] = version.to_s if version
       end
       node

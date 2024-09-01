@@ -58,7 +58,7 @@ module Xapi
         if version == Xapi::TCAPIVersion::V095 && parent.size > 1
           raise Xapi::Errors::IncompatibleTCAPIVersion, "Version #{version.to_s} doesn't support lists of activities (parent)"
         end
-        if version == Xapi::TCAPIVersion::V095
+        if version == Xapi::TcapiVersion::V095
           node['parent'] = parent.first.serialize(version)
         else
           node['parent'] = parent.map {|element| element.serialize(version)}
@@ -69,7 +69,7 @@ module Xapi
         if version == Xapi::TCAPIVersion::V095 && grouping.size > 1
           raise Xapi::Errors::IncompatibleTCAPIVersion, "Version #{version.to_s} doesn't support lists of activities (grouping)"
         end
-        if version == Xapi::TCAPIVersion::V095
+        if version == Xapi::TcapiVersion::V095
           node['grouping'] = grouping.first.serialize(version)
         else
           node['grouping'] = grouping.map {|element| element.serialize(version)}
@@ -80,7 +80,7 @@ module Xapi
         if version == Xapi::TCAPIVersion::V095 && other.size > 1
           raise Xapi::Errors::IncompatibleTCAPIVersion, "Version #{version.to_s} doesn't support lists of activities (other)"
         end
-        if version == Xapi::TCAPIVersion::V095
+        if version == Xapi::TcapiVersion::V095
           node['other'] = other.first.serialize(version)
         else
           node['other'] = other.map {|element| element.serialize(version)}
@@ -88,7 +88,7 @@ module Xapi
       end
 
       if category && category.any?
-        if version.ordinal >= Xapi::TCAPIVersion::V100.ordinal
+        if version.ordinal >= Xapi::TcapiVersion::V100.ordinal
           node['category'] = category.map {|element| element.serialize(version)}
         else
           raise Xapi::Errors::IncompatibleTCAPIVersion, "Version #{version.to_s} doesn't support the category context activity"

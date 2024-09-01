@@ -7,7 +7,7 @@ module Xapi
     attr_accessor :authoritative, :sparse, :instructor, :ascending
 
     def initialize(&block)
-      self.version = TCAPIVersion::V095
+      self.version = TcapiVersion::V095
       if block_given?
         block[self]
       end

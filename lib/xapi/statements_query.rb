@@ -7,7 +7,7 @@ module Xapi
     attr_accessor :stored_since, :stored_until, :limit, :format, :ascending
 
     def initialize(&block)
-      self.version = TCAPIVersion::V101
+      self.version = TcapiVersion::V101
       if block_given?
         block[self]
       end

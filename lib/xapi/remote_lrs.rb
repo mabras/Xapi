@@ -4,8 +4,8 @@ require 'addressable/uri'
 require 'xapi/tcapi_version'
 module Xapi
   # Class used to communicate with a TCAPI endpoint synchronously
-  class RemoteLRS
-    include Xapi::TCAPIVersion
+  class RemoteLrs
+    include Xapi::TcapiVersion
 
     VALID_PARAMS = %w(end_point user_name password version)
 
@@ -92,7 +92,7 @@ module Xapi
     end
 
     def retrieve_voided_statement(id)
-      param_name = version == TCAPIVersion.V095 ? 'statementId' : 'voidedStatementId'
+      param_name = version == TcapiVersion.V095 ? 'statementId' : 'voidedStatementId'
       get_statement(id, param_name)
     end
 
@@ -100,7 +100,7 @@ module Xapi
       # TODO: Complete this
       query = statement_query
       unless query
-        query = version == TCAPIVersion::V095 ? StatementsQueryV095.new : StatementsQuery.new
+        query = version == TcapiVersion::V095 ? StatementsQueryV095.new : StatementsQuery.new
       end
       # Error if the query parameters don't match the LRS version
       raise Errors::IncompatibleTCAPIVersion, "Attempted to issue #{version} query using a #{query.version} set of query parameters." unless version == query.version

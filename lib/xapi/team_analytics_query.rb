@@ -6,7 +6,7 @@ module Xapi
     attr_accessor :activity_id, :registration, :activity_type, :team_name, :agent_email
 
     def initialize(&block)
-      self.version = TCAPIVersion::V101
+      self.version = TcapiVersion::V101
       if block_given?
         block[self]
       end
