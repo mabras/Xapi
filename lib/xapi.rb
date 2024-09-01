@@ -67,6 +67,27 @@ module Xapi
     Context.new(opts)
   end
 
+  def self.create_platform_extension(name)
+    {
+      "https://nelc.gov.sa/extensions/platform" => {
+        name: {
+          "ar-SA": name,
+          "en-US": "Unspecified"
+        }
+      }
+    }
+  end
+
+  def self.create_browser_extension
+    {
+      "http://id.tincanapi.com/extension/browser-info" => {
+        code_name: "Unknown",
+        name: "Unknown",
+        version: "Unknown"
+      }
+    }
+  end
+
   # Parameters can be passed for create_team are: home_page, name
   def self.create_team(opts={})
     team_account = AgentAccount.new(home_page: opts[:home_page], name: opts[:name])
