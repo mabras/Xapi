@@ -107,6 +107,7 @@ module Xapi
     statement = Statement.new(actor: opts[:actor], verb: opts[:verb], object: opts[:object])
     statement.context = opts[:context] if opts[:context].present?
     statement.result = opts[:result] if opts[:result].present?
+    Rails.logger.info "XAPI: Sending Statement #{statement.to_json}"
     statement
   end
 
