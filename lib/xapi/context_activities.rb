@@ -55,7 +55,7 @@ module Xapi
     def serialize(version)
       node = {}
       if parent && parent.any?
-        if version == Xapi::TCAPIVersion::V095 && parent.size > 1
+        if version == Xapi::TcapiVersion::V095 && parent.size > 1
           raise Xapi::Errors::IncompatibleTCAPIVersion, "Version #{version.to_s} doesn't support lists of activities (parent)"
         end
         if version == Xapi::TcapiVersion::V095
@@ -66,7 +66,7 @@ module Xapi
       end
 
       if grouping && grouping.any?
-        if version == Xapi::TCAPIVersion::V095 && grouping.size > 1
+        if version == Xapi::TcapiVersion::V095 && grouping.size > 1
           raise Xapi::Errors::IncompatibleTCAPIVersion, "Version #{version.to_s} doesn't support lists of activities (grouping)"
         end
         if version == Xapi::TcapiVersion::V095
@@ -77,7 +77,7 @@ module Xapi
       end
 
       if other && other.any?
-        if version == Xapi::TCAPIVersion::V095 && other.size > 1
+        if version == Xapi::TcapiVersion::V095 && other.size > 1
           raise Xapi::Errors::IncompatibleTCAPIVersion, "Version #{version.to_s} doesn't support lists of activities (other)"
         end
         if version == Xapi::TcapiVersion::V095

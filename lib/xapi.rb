@@ -97,7 +97,7 @@ module Xapi
 
   # Parameters can be passed for create_remote_lrs are: end_point, user_name, password
   def self.create_remote_lrs(opts={})
-    RemoteLRS.new(end_point: opts[:end_point], user_name: opts[:user_name], password: opts[:password])
+    RemoteLrs.new(end_point: opts[:end_point], user_name: opts[:user_name], password: opts[:password])
     # lrs_auth_response = remote_lrs.about
     # lrs_auth_response.success ? remote_lrs : nil
   end
