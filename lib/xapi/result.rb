@@ -36,7 +36,7 @@ module Xapi
       node['score'] = score.serialize(version) if score
       node['success'] = success unless success.nil?
       node['completion'] = completion unless completion.nil?
-      node['duration'] = duration.iso8601 if duration
+      node['duration'] = duration if duration
       node['response'] = response if response
       node['extensions'] = extensions if extensions
 
